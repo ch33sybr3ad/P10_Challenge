@@ -1,4 +1,43 @@
-Jason's App is 
+<div class="container">
 
-<a href='http://www.glassdoor.com/index.htm'>powered by <img src='http://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+  <h1> Welcome to Jason's P10 Project </h1>
+
+  <%if logged_in?%>
+    <h1> Thank you <%=@user.username %> for visiting </h1>
+    <button class="log-out" type="button">Logout!</button>
+  <%end%>
+
+  <a href='http://www.glassdoor.com/index.htm'>powered by <img src='http://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a> <br>
+
+  <%if !logged_in?%>
+
+  <button class="sign-in" type="button">Sign In!</button>
+
+  <form id="sign-in" method="post" action="/signin">
+    <label class="label" for="name">Name</label>
+    <input type="text" name="name">
+
+    <label class="label" for="password">Password</label>
+    <input type="password" name="password">
+
+    <div class="submit"><input type="submit" value="Sign In"></div>
+  </form>
+
+  <button class="sign-up" type="button">Sign Up!</button>
+
+  <form id="sign-up" method="post" action="/signup">
+    <label class="label" for="username">Name</label>
+    <input type="text" name="user[username]" >
+
+    <label class="label" for="password">Password</label>
+    <input type="password" name="user[password]">
+
+    <div class="submit"><input type="submit" value="Sign Up"></div>
+  </form>
+
+  <%end%>
+
+
+
+</div>
 
