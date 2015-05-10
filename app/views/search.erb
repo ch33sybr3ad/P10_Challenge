@@ -22,27 +22,29 @@ Which company would you like to search?
   </form>
 
   <div class="results">
-    <%if !!@jobs.first%>
+    <%if !!@jobs%>
 
-      <% @jobs.each do |job| %>
-        <h1><%= job.jobtitle %></h1>
-        <p><%= job.company %></p>
-        <p><%= job.location %></p>
-        <p><%= job.snippet %></p>
-        <p><%= job.url %></p> 
-        <!-- style url into a button or something -->
-        <p><%= job.jobkey %></p>
+      <div class="job">
+        <% @jobs.each do |job| %>
+          <h1><%= job.jobtitle %></h1>
+          <p><%= job.company %></p>
+          <p><%= job.location %></p>
+          <p><%= job.snippet %></p>
+          <p><%= job.url %></p> 
+          <!-- style url into a button or something -->
+          <p><%= job.jobkey %></p>
+      </div>
 
-        <% find_company(job.company) %>
-
-        <% if !!@information %>
-          <p><%= @information["name"] %></p>
-          <p><%= @information["website"] %></p>
-          <p><%= @information["overallRating"] %></p>
-          <img src="<%= @information["squareLogo"] %>" alt="#{job.company} logo">
+      <div class="company"
+          <% find_company(job.company) %>
+          <% if !!@information %>
+            <p><%= @information["name"] %></p>
+            <p><%= @information["website"] %></p>
+            <p><%= @information["overallRating"] %></p>
+            <img src="<%= @information["squareLogo"] %>" alt="#{job.company} logo">
           <%end%>
-
-      <% end %>
+      </div>
+        <% end %>
 
     <%end%>
   </div>

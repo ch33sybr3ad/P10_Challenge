@@ -3,9 +3,11 @@ require 'faker'
 5.times do
   User.create(
     username: Faker::Internet.user_name,
-    password: 123455,
+    password: 123456,
     )
 end
+
+User.create(username: "jason", password: 1234)
 
 fake_job = {
   jobtitle: "Fake Job Title", 
