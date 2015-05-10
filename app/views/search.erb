@@ -29,7 +29,8 @@ Which company would you like to search?
         <p><%= job.company %></p>
         <p><%= job.location %></p>
         <p><%= job.snippet %></p>
-        <p><%= job.url %></p>
+        <p><%= job.url %></p> 
+        <!-- style url into a button or something -->
         <p><%= job.jobkey %></p>
 
         <% find_company(job.company) %>
@@ -38,7 +39,7 @@ Which company would you like to search?
           <p><%= @information["name"] %></p>
           <p><%= @information["website"] %></p>
           <p><%= @information["overallRating"] %></p>
-          <p><%= @information["squareLogo"] %></p>
+          <img src="<%= @information["squareLogo"] %>" alt="#{job.company} logo">
           <%end%>
 
       <% end %>
