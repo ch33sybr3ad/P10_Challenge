@@ -1,22 +1,15 @@
 <br>
-Which company would you like to search? 
+What job would you like to search? 
 <hr>
 
 <div class="container">
-  <form id="search-bar" method="post" action="/searchcompany">
-
-    <label class="label" for="search">Search Companies!</label>
-    <input type="text" name="search">
-
-    <div class="submit"><input type="submit" value="Search!"></div>
-  </form>
-
-  <br>
 
   <form id="search-bar" method="post" action="/searchjob">
 
-    <label class="label" for="search">Search Jobs!</label>
+    <label class="label" for="search">Jobs </label>
     <input type="text" name="search">
+    <label class="label" for="search">Location </label>
+    <input type="text" name="location">
 
     <div class="submit"><input type="submit" value="Search!"></div>
   </form>
@@ -47,5 +40,11 @@ Which company would you like to search?
         <% end %>
 
     <%end%>
+  </div>
+
+  <div class="footer">
+
+    
+  
   </div>
 </div>

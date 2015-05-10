@@ -1,5 +1,4 @@
 get '/' do
-  session[:user_id] = nil
   if logged_in?
     current_user
   end
@@ -23,6 +22,11 @@ post '/signup' do
   redirect '/'
 end
 
+get '/logout' do
+  logout
+  redirect '/'
+end
+
 # maybe add /search/:search ??
 get '/search' do 
   erb :search
@@ -37,7 +41,8 @@ end
 
 post '/searchjob' do
   search = params[:search]
-  json_obj = HTTParty.get("http://api.indeed.com/ads/apisearch?publisher=6291780534833421&format=json&q=#{search.gsub(" ", "%20")}&l=&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2")
+  location = params[:location]
+  json_obj = HTTParty.get("http://api.indeed.com/ads/apisearch?publisher=6291780534833421&format=json&q=#{search.gsub(" ", "%20")}&l=#{location.gsub(" ", "%20")}&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2")
   job = JSON.parse(json_obj)
   create_jobs_array(job)
   erb :search

@@ -4,7 +4,13 @@
 
   <%if logged_in?%>
     <h1> Thank you <%=@user.username %> for visiting </h1>
-    <button class="log-out" type="button">Logout!</button>
+    <form id="search" method="get" action="/logout">
+      <div class="submit"><input type="submit" value="Log Out!"></div>
+    </form>
+  
+    <form id="search" method="get" action="/search">
+      <div class="submit"><input type="submit" value="Search!"></div>
+    </form>
   <%end%>
 
   <br>
@@ -15,12 +21,9 @@
   href="http://www.indeed.com/" title="Job Search"><img
   src="http://www.indeed.com/p/jobsearch.gif" style="border: 0;
   vertical-align: middle;" alt="Indeed job search"></a></span> <br>
+                    
+
                                   
-
-  <%if !logged_in?%>
-
-  <button class="sign-in" type="button">Sign In!</button>
-
   <form id="sign-in" method="post" action="/signin">
     <label class="label" for="name">Name</label>
     <input type="text" name="name">
@@ -28,10 +31,8 @@
     <label class="label" for="password">Password</label>
     <input type="password" name="password">
 
-    <div class="submit"><input type="submit" value="Sign In"></div>
+    <div class="footer"><input type="submit" value="Sign In"></div>
   </form>
-
-  <button class="sign-up" type="button">Sign Up!</button>
 
   <form id="sign-up" method="post" action="/signup">
     <label class="label" for="username">Name</label>
@@ -40,12 +41,15 @@
     <label class="label" for="password">Password</label>
     <input type="password" name="user[password]">
 
-    <div class="submit"><input type="submit" value="Sign Up"></div>
+    <div class="footer"><input type="submit" value="Sign Up"></div>
   </form>
 
+  <div class="footer">
+  <%if !logged_in?%>
+    <button class="sign-in" type="button">Sign In!</button>
+    <button class="sign-up" type="button">Sign Up!</button>
   <%end%>
-
-
+  </div>
 
 </div>
 

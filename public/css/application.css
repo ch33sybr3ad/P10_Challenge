@@ -1,7 +1,17 @@
+body {
+  background-color: #f6f6f6;
+}
+
 #sign-in {
   display:none;
 }
 
 #sign-up {
   display:none;
+}
+
+.footer {
+  bottom: 20px;
+  position: absolute;
+  margin: 0px 40%;
 }
