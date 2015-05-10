@@ -20,4 +20,29 @@ Which company would you like to search?
 
     <div class="submit"><input type="submit" value="Search!"></div>
   </form>
+
+  <div class="results">
+    <%if !!@jobs.first%>
+
+      <% @jobs.each do |job| %>
+        <h1><%= job.jobtitle %></h1>
+        <p><%= job.company %></p>
+        <p><%= job.location %></p>
+        <p><%= job.snippet %></p>
+        <p><%= job.url %></p>
+        <p><%= job.jobkey %></p>
+
+        <% find_company(job.company) %>
+
+        <% if !!@information %>
+          <p><%= @information["name"] %></p>
+          <p><%= @information["website"] %></p>
+          <p><%= @information["overallRating"] %></p>
+          <p><%= @information["squareLogo"] %></p>
+          <%end%>
+
+      <% end %>
+
+    <%end%>
+  </div>
 </div>
