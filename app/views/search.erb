@@ -5,7 +5,17 @@ Which company would you like to search?
 <div class="container">
   <form id="search-bar" method="post" action="/searchcompany">
 
-    <label class="label" for="search">Company</label>
+    <label class="label" for="search">Search Companies!</label>
+    <input type="text" name="search">
+
+    <div class="submit"><input type="submit" value="Search!"></div>
+  </form>
+
+  <br>
+
+  <form id="search-bar" method="post" action="/searchjob">
+
+    <label class="label" for="search">Search Jobs!</label>
     <input type="text" name="search">
 
     <div class="submit"><input type="submit" value="Search!"></div>

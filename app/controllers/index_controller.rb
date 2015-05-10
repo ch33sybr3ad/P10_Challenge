@@ -39,9 +39,26 @@ end
 
 post '/searchcompany' do
   search = params[:search]
-  @job = HTTParty.get("http://api.glassdoor.com/api/api.htm?t.p=35408&t.k=ebFf3MTNqwe&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=#{search}")
-  p @job["response"]["employers"][0]["name"]
-  return @job["response"]["employers"][0]["website"]
+  @company = HTTParty.get("http://api.glassdoor.com/api/api.htm?t.p=35408&t.k=ebFf3MTNqwe&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=#{search}")
+  p @company["response"]["employers"][0]["name"]
+  return @company["response"]["employers"][0]["website"]
+end
+
+post '/searchjob' do
+  search = params[:search]
+  json_obj = HTTParty.get("http://api.indeed.com/ads/apisearch?publisher=6291780534833421&format=json&q=java&l=&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2")
+  @job = JSON.parse(json_obj)
+  
+end
+
+get '/testing' do
+  @job = HTTParty.get("http://api.indeed.com/ads/apisearch?publisher=6291780534833421&format=json&q=java&l=&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2")
+  obj = JSON.parse(@job)
+  puts "######"
+  # p @job["results"]
+  p obj["results"][0]["jobtitle"]
+  puts "######"
+  return "hello world, this is jason's testing page"
 end
 
 #API pass in action/parameters/values
