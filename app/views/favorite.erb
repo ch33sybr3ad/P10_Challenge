@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>GREETINGS <%=@user.username.upcase%></h1> 
+  <h1> HERE ARE YOUR FAVORITE JOB LISTINGS </h1>
+
+  <% @favorites.each do |relationship| %>
+    <% find_job(relationship[:jobs_id]) %>
+    <p><%= @job.jobtitle %></p>
+    <p><%= @job.company %></p>
+  <%end%>
+
+  <div class="footer">
+
+    <form id="home" method="get" action="/">
+      <div class="submit"><input type="submit" value="Home!"></div>
+    </form>
+
+  </div>
+
+</div>

@@ -1,38 +1,25 @@
 <div class="container">
 
-  <h1> Welcome to Jason's P10 Project </h1>
+  <img src="https://www.jippostore.com/jippo/img/logo-j.png" alt="web app logo" width="100px" height="100
+  px">
 
-  <%if logged_in?%>
-    <h1> Thank you <%=@user.username %> for visiting </h1>
-    <form id="search" method="get" action="/logout">
-      <div class="submit"><input type="submit" value="Log Out!"></div>
-    </form>
-  
-    <form id="search" method="get" action="/search">
-      <div class="submit"><input type="submit" value="Search!"></div>
-    </form>
-  <%end%>
+  <h1>Job Hunt</h1>
 
-  <br>
+  <div class="front-page">
 
-  <a href='http://www.glassdoor.com/index.htm'>powered by <img src='http://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a> <br>
 
-  <span id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a
-  href="http://www.indeed.com/" title="Job Search"><img
-  src="http://www.indeed.com/p/jobsearch.gif" style="border: 0;
-  vertical-align: middle;" alt="Indeed job search"></a></span> <br>
-                    
-
-                                  
+<div class="form-group">
   <form id="sign-in" method="post" action="/signin">
     <label class="label" for="name">Name</label>
-    <input type="text" name="name">
+    <input type="text" class="form-control" name="name">
 
     <label class="label" for="password">Password</label>
-    <input type="password" name="password">
-
-    <div class="footer"><input type="submit" value="Sign In"></div>
+    <input type="password" class="form-control" name="password">
+    <br>
+    <input class="form-control" type="submit" value="Sign In">
   </form>
+ </div>
+
 
   <form id="sign-up" method="post" action="/signup">
     <label class="label" for="username">Name</label>
@@ -44,10 +31,30 @@
     <div class="footer"><input type="submit" value="Sign Up"></div>
   </form>
 
+  </div>
+
   <div class="footer">
   <%if !logged_in?%>
     <button class="sign-in" type="button">Sign In!</button>
     <button class="sign-up" type="button">Sign Up!</button>
+  <%end%>
+
+  <%if logged_in?%>
+    <form id="footer"  method="get" action="/logout">
+      <input class="btn btn-default" type="submit" value="Log Out!">
+    </form>
+  
+    <form id="footer" method="get" action="/search">
+      <input class="btn btn-default" type="submit" value="Search!">
+    </form>
+
+    <form id="footer" method="get" action="/favorite/<%=@user.id%>">
+      <input class="btn btn-default" type="submit" value="Favorites!">
+    </form>
+
+    <a  href='http://www.glassdoor.com/index.htm'>powered by <img src='http://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+
+    <span id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a href="http://www.indeed.com/" title="Job Search"><img src="http://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;" alt="Indeed job search"></a></span>
   <%end%>
   </div>
 

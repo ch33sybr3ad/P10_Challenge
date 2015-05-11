@@ -27,6 +27,14 @@ get '/logout' do
   redirect '/'
 end
 
+get '/favorite/:id' do
+  @user = User.where(id: params[:id]).first
+  @favorites = Relationship.where(users_id: @user.id)
+  p @favorites[0]
+  p @favorites[1]
+  erb :favorite
+end
+
 # maybe add /search/:search ??
 get '/search' do 
   erb :search

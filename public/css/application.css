@@ -2,16 +2,73 @@ body {
   background-color: #f6f6f6;
 }
 
-#sign-in {
-  display:none;
+.container {
+  margin-top: 20px;
+  border: 1px dotted black;
+  text-align: center;
+  padding: 20px;
 }
+
+.results {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.job {
+  border: 1px dotted black;
+  width: 65%;
+  float: left;
+  height: 300px;
+  overflow: scroll;
+}
+
+.company {
+  border: 1px dotted black;
+  text-align: center;
+  width: 30%;
+  float: right;
+  height: 300px;
+  overflow: scroll;
+}
+
+.form-group {
+  padding: 0px 15px
+}
+
+/*#sign-in {
+  display:none;
+}*/
 
 #sign-up {
   display:none;
 }
 
+.front-page {
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border: 1px dotted black;
+  text-align: center;
+}
+
+.label {
+  color: black;
+}
+
 .footer {
-  bottom: 20px;
-  position: absolute;
-  margin: 0px 40%;
+  border: 1px dotted black;
+  padding: 5px 0px 5px 0px;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background-color: #EBEBEB;
+  left: 0px;
+}
+
+#footer {
+  display: inline-block;
 }

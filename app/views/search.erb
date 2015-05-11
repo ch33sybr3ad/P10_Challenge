@@ -1,38 +1,34 @@
-<br>
-What job would you like to search? 
-<hr>
-
 <div class="container">
 
-  <form id="search-bar" method="post" action="/searchjob">
+  <img src="https://www.jippostore.com/jippo/img/logo-j.png" alt="web app logo" width="100px" height="100px"> 
 
-    <label class="label" for="search">Jobs </label>
-    <input type="text" name="search">
-    <label class="label" for="search">Location </label>
-    <input type="text" name="location">
+  <h1>Job Hunt</h1>
+  
 
-    <div class="submit"><input type="submit" value="Search!"></div>
+  <form id="search-bar" class="btn btn-default" method="post" action="/searchjob">
+    <input class="btn btn-default" type="text" name="search" placeholder= "Job Title">
+    <input class="btn btn-default" type="text" name="location" placeholder= "Location">
+    <input class="btn btn-default" type="submit" value="Search!">
   </form>
+
+</div>
 
   <div class="results">
     <%if !!@jobs%>
 
-      <div class="job">
         <% @jobs.each do |job| %>
+      <div class="job">
           <h1><%= job.jobtitle %></h1>
-          <p><%= job.company %></p>
           <p><%= job.location %></p>
-          <p><%= job.snippet %></p>
-          <p><%= job.url %></p> 
-          <!-- style url into a button or something -->
-          <p><%= job.jobkey %></p>
+          <p>Job Snippet: <%= job.snippet %></p>
+          <a href="<%= job.url %>">See Full Description!</a>
       </div>
 
-      <div class="company"
+      <div class="company">
           <% find_company(job.company) %>
           <% if !!@information %>
-            <p><%= @information["name"] %></p>
-            <p><%= @information["website"] %></p>
+            <h2><%= @information["name"] %></h2>
+            <a href="<%=@information["website"]%>"><%=@information["website"]%></a>
             <p><%= @information["overallRating"] %></p>
             <img src="<%= @information["squareLogo"] %>" alt="#{job.company} logo">
           <%end%>
@@ -44,7 +40,9 @@ What job would you like to search?
 
   <div class="footer">
 
-    
-  
+    <form id="home" method="get" action="/">
+      <input class="btn btn-default" type="submit" value="Home!">
+    </form>
+
   </div>
-</div>
+
