@@ -7,30 +7,23 @@
 
   <div class="front-page">
 
+  <div class="form-group">
+    <form id="sign-in" method="post" action="/signin">
+      <h1> Sign In </h1>
+      <input type="text" class="form-control" name="username" placeholder="Your Username"><br>
+      <input type="password" class="form-control" name="password" placeholder="Password"><br>
+      <input class="form-control" type="submit" value="Sign In">
+    </form>
+   </div>
 
-<div class="form-group">
-  <form id="sign-in" method="post" action="/signin">
-    <label class="label" for="name">Name</label>
-    <input type="text" class="form-control" name="name">
 
-    <label class="label" for="password">Password</label>
-    <input type="password" class="form-control" name="password">
-    <br>
-    <input class="form-control" type="submit" value="Sign In">
+<!--   <form id="sign-up" method="post" action="/signup">
+    <h1> Sign Up </h1>
+    <input type="text" class="form-control" name="username" placeholder="Your Username"><br>
+    <input type="password" class="form-control" name="password" placeholder="Password"><br>
+    <input class="form-control" type="submit" value="Sign Up">
   </form>
- </div>
-
-
-  <form id="sign-up" method="post" action="/signup">
-    <label class="label" for="username">Name</label>
-    <input type="text" name="user[username]" >
-
-    <label class="label" for="password">Password</label>
-    <input type="password" name="user[password]">
-
-    <div class="footer"><input type="submit" value="Sign Up"></div>
-  </form>
-
+ -->
   </div>
 
   <div class="footer">

@@ -6,7 +6,7 @@ get '/' do
 end
 
 post '/signin' do
-  user = User.where(username: params[:name]).first
+  user = User.where(username: params[:username]).first
   if user.password = params[:password]
     session[:user_id] = user.id
     redirect '/'
@@ -17,7 +17,7 @@ post '/signin' do
 end
 
 post '/signup' do
-  user = User.create(params[:user])
+  user = User.create(username: params[:username], username: params[:name])
   session[:user_id] = user.id
   redirect '/'
 end
@@ -30,8 +30,6 @@ end
 get '/favorite/:id' do
   @user = User.where(id: params[:id]).first
   @favorites = Relationship.where(users_id: @user.id)
-  p @favorites[0]
-  p @favorites[1]
   erb :favorite
 end
 

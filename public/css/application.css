@@ -1,5 +1,6 @@
 body {
   background-color: #f6f6f6;
+  font-family: "Open Sans", sans-serif;
 }
 
 .container {
@@ -33,23 +34,28 @@ body {
 }
 
 .form-group {
-  padding: 0px 15px
+  padding: 0px 40px
 }
 
-/*#sign-in {
-  display:none;
-}*/
-
-#sign-up {
-  display:none;
+form h1 {
+  padding: 20px;
+  color: #0FC92F;
+  font-size: 3em;
 }
+
+.form-group input[type=submit] {
+  background: #0FC92F;
+  color: white;
+  font-size: 16px;
+}
+
 
 .front-page {
   background-color: white;
   border-radius: 5px;
   margin: 0 auto;
   width: 400px;
-  height: 400px;
+  height: 350px;
   border: 1px dotted black;
   text-align: center;
 }
@@ -72,3 +78,4 @@ body {
 #footer {
   display: inline-block;
 }
+
