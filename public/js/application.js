@@ -28,16 +28,30 @@ $(document).ready(function() {
       type: 'POST',
       data: {username: username_val, password: password_val}
     }).done(function(){
-      current.parent().find("input[name='username']").val("")
-      current.parent().find("input[name='password']").val("")
-      // show all the other buttons
-      // clear values in form
+      current.parent().find("input[name='username']").val("");
+      current.parent().find("input[name='password']").val("");
+      $('.before-sign-in').css('display','none');
+      $('.after-sign-in').css('display','inline-block');
+      $('#register').find('h1').text("Welcome");
     });
   });
 
   $('body').on('click', '.home-signup', function(e) {
     e.preventDefault();
-    alert('hello signing up');
+    current = $(this).parent();
+    username_val = current.find("input[name='username']").val();
+    password_val = current.find("input[name='password']").val(); 
+     $.ajax({
+      url: current.attr('action'),
+      type: 'POST',
+      data: {username: username_val, password: password_val}
+    }).done(function() {
+      current.parent().find("input[name='username']").val("");
+      current.parent().find("input[name='password']").val("");
+      $('.before-sign-in').css('display','none');
+      $('.after-sign-in').css('display','inline-block');
+      $('#register').find('h1').text("Welcome");
+    });
   });
 
 });
