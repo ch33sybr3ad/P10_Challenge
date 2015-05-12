@@ -25,13 +25,10 @@
       </div>
 
       <div class="company">
-          <% find_company(job.company) %>
-          <% if !!@information %>
-            <h2><%= @information["name"] %></h2>
-            <a href="<%=@information["website"]%>"><%=@information["website"]%></a>
-            <p><%= @information["overallRating"] %></p>
-            <img src="<%= @information["squareLogo"] %>" alt="#{job.company} logo">
-          <%end%>
+        <h2><%= job.company %></h2>
+        <p><%= job.website %></p>
+        <p><%= job.rating %></p>
+        <img src="<%=job.logo%>" width="160px" height="160px" alt="<%=job.company%> logo">
       </div>
         <% end %>
 
