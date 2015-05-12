@@ -7,7 +7,7 @@ end
 
 post '/signin' do
   user = User.where(username: params[:username]).first
-  if user.password = params[:password]
+  if user && user.password = params[:password]
     session[:user_id] = user.id
     redirect '/'
   else

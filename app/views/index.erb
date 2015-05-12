@@ -7,32 +7,24 @@
 
   <div class="front-page">
 
-  <div class="form-group">
-    <form id="sign-in" method="post" action="/signin">
-      <h1> Sign In </h1>
-      <input type="text" class="form-control" name="username" placeholder="Your Username"><br>
-      <input type="password" class="form-control" name="password" placeholder="Password"><br>
-      <input class="form-control" type="submit" value="Sign In">
-    </form>
-   </div>
+    <div class="form-group">
+      <form id="register" method="post" action="/signin">
+        <h1> Sign In </h1>
+        <input type="text" class="form-control" name="username" placeholder="Your Username"><br>
+        <input type="password" class="form-control" name="password" placeholder="Password"><br>
+        <input class="form-control home-signin" type="submit" value="Sign In">
+      </form>
+    </div>
 
-
-<!--   <form id="sign-up" method="post" action="/signup">
-    <h1> Sign Up </h1>
-    <input type="text" class="form-control" name="username" placeholder="Your Username"><br>
-    <input type="password" class="form-control" name="password" placeholder="Password"><br>
-    <input class="form-control" type="submit" value="Sign Up">
-  </form>
- -->
   </div>
 
   <div class="footer">
   <%if !logged_in?%>
-    <button class="sign-in" type="button">Sign In!</button>
-    <button class="sign-up" type="button">Sign Up!</button>
+    <button class="sign-in btn btn-default" type="button">Sign In!</button>
+    <button class="sign-up btn btn-default" type="button">Sign Up!</button>
   <%end%>
 
-  <%if logged_in?%>
+  
     <form id="footer"  method="get" action="/logout">
       <input class="btn btn-default" type="submit" value="Log Out!">
     </form>
@@ -48,7 +40,7 @@
     <a  href='http://www.glassdoor.com/index.htm'>powered by <img src='http://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
 
     <span id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a href="http://www.indeed.com/" title="Job Search"><img src="http://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;" alt="Indeed job search"></a></span>
-  <%end%>
+
   </div>
 
 </div>
