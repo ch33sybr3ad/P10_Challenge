@@ -1,3 +1,6 @@
+/*#0FC92F original green color*/
+/*#67CA5D good button color?*/
+
 body {
   background-color: #f6f6f6;
   font-family: "Open Sans", sans-serif;
@@ -5,32 +8,42 @@ body {
 
 .container {
   margin-top: 20px;
-  border: 1px dotted black;
+  /*border: 1px dotted black;*/
   text-align: center;
   padding: 20px;
 }
 
 .results {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   margin-bottom: 30px;
+  font-family: Baskerville;
+}
+
+.job-company{
+  border: 2px solid #7BB52B;
+  border-radius: 5px;
+  height: 415px;
+  overflow: scroll;
+  padding: 15px;
+  margin: 10px;
+  background-color: white;
+  /*box-shadow: 8px 8px 5px #888888;*/
 }
 
 .job {
-  border: 1px dotted black;
-  width: 65%;
+  width: 63%;
   float: left;
-  height: 300px;
-  overflow: scroll;
+  height:350px;
 }
 
 .company {
-  border: 1px dotted black;
-  text-align: center;
   width: 30%;
   float: right;
-  height: 300px;
-  overflow: scroll;
+  text-align: center;
+  border-left: 1px solid;
+  padding-left: 15px;
+  height:350px;
 }
 
 .form-group {
@@ -89,4 +102,9 @@ form h1 {
 
 .aftersignin {
   display:none;
+}
+
+.rate {
+  font-size:50px;
+  font-family: DIN;
 }

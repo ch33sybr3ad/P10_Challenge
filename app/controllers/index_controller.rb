@@ -47,6 +47,10 @@ get '/search' do
   erb :search
 end
 
+get '/searchjob' do
+  redirect '/search'
+end
+
 post '/searchjob' do
   search = params[:search]
   location = params[:location]

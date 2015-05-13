@@ -1,47 +1,54 @@
 <div class="container">
-
   <img src="https://www.jippostore.com/jippo/img/logo-j.png" alt="web app logo" width="100px" height="100px"> 
-
   <h1>Job Hunt</h1>
   
-
   <form id="search-bar" class="btn btn-default" method="post" action="/searchjob">
     <input class="btn btn-default" type="text" name="search" placeholder= "Job Title">
     <input class="btn btn-default" type="text" name="location" placeholder= "Location">
     <input class="btn btn-default" type="submit" value="Search!">
   </form>
-
 </div>
 
-  <div class="results">
-    <%if !!@jobs%>
+<div class="results">
+  <%if !!@jobs%>
+    <% @jobs.each do |job| %>
 
-        <% @jobs.each do |job| %>
+    <div class="job-company">
       <div class="job">
-          <h1><%= job.jobtitle %></h1>
+          <h2><strong><%= job.jobtitle %></strong></h2>
           <p><%= job.location %></p>
           <p>Job Snippet: <%= job.snippet %></p>
-          <a href="<%= job.url %>">See Full Description!</a> <br>
+          <a href="<%= job.url %>">See Full Description!</a> 
+          <br><br><br><br>
           <span id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a href="http://www.indeed.com/" title="Job Search"><img src="http://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;" alt="Indeed job search"></a></span>
       </div>
 
       <div class="company">
-        <h2><%= job.company %></h2>
-        <p><%= job.website %></p>
-        <p><%= job.rating %></p>
-        <img src="<%=job.logo%>" width="160px" height="160px" alt="<%=job.company%> logo"> <br>
+        <h3><strong><%= job.company %></strong></h3>
+        <a href="<%= job.website %>">Visit <%= job.website %>!</a>
+        <p class="rate"><strong><%= job.rating %></strong></p>
+        <img src="<%=job.logo%>" width="140px" height="140px" alt="<%=job.company%> logo"> <br>
         <a  href='http://www.glassdoor.com/index.htm'>powered by <img src='http://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+        <br>
+      </div>  
+
+      <div class="form-group">
+        <form method="get" action="/">
+          <input class="form-control" type="submit" value="Save to Favorites!">
+        </form>
       </div>
-        <% end %>
 
-    <%end%>
-  </div>
+    </div>
+      <% end %>
 
-  <div class="footer">
+  <%end%>
+</div>
 
-    <form id="home" method="get" action="/home">
-      <input class="btn btn-default" type="submit" value="Home!">
-    </form>
+<div class="footer">
 
-  </div>
+  <form id="home" method="get" action="/home">
+    <input class="btn btn-default" type="submit" value="Home!">
+  </form>
+
+</div>
 
