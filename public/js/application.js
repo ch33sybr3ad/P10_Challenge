@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   $('.container').on('click', '.sign-up', function(e) {
     e.preventDefault();
     $('#register').attr('action', '/signup')
@@ -8,7 +7,6 @@ $(document).ready(function() {
     $('#register').find('h1').text("Sign Up")
     $('.home-signin').addClass('home-signup').removeClass('home-signin')
   });
-
 
   $('.container').on('click', '.sign-in', function(e) {
     e.preventDefault();
@@ -30,9 +28,9 @@ $(document).ready(function() {
     }).done(function(){
       current.parent().find("input[name='username']").val("");
       current.parent().find("input[name='password']").val("");
-      $('.before-sign-in').css('display','none');
-      $('.after-sign-in').css('display','inline-block');
-      $('#register').find('h1').text("Welcome");
+      $('.sbuttons').css('display','none');
+      $('#register').remove()
+      $('.aftersignin').fadeIn(1500)
     });
   });
 
@@ -48,10 +46,18 @@ $(document).ready(function() {
     }).done(function() {
       current.parent().find("input[name='username']").val("");
       current.parent().find("input[name='password']").val("");
-      $('.before-sign-in').css('display','none');
-      $('.after-sign-in').css('display','inline-block');
-      $('#register').find('h1').text("Welcome");
+      $('.sbuttons').css('display','none');
+      $('#register').remove()
+      $('.aftersignin').fadeIn(1500)
     });
   });
 
+  // $('#register').fadeOut(1000)
+
+
+  // $($('.form-group').find('input')[0-2])
+  //  finds forms 1,2,3
+
+  // $($('.form-group').find('input')[2]).replaceWith("<h2>New heading</h2>")
+  // $(this).fadeOut().next().fadeIn()
 });

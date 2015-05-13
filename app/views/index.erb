@@ -10,35 +10,34 @@
     <div class="form-group">
       <form id="register" method="post" action="/signin">
         <h1> Sign In </h1>
-        <input type="text" class="form-control" name="username" placeholder="Your Username"><br>
-        <input type="password" class="form-control" name="password" placeholder="Password"><br>
-        <input class="form-control home-signin" type="submit" value="Sign In">
+          <input type="text" class="form-control active" name="username" placeholder="Your Username"><br>
+
+          <input type="password" class="form-control active" name="password" placeholder="Password"><br>
+
+          <input class="form-control home-signin active" type="submit" value="Sign In">
       </form>
+
+      <div class="aftersignin">
+        <form method="get" action="/search">
+          <h1> Welcome </h1>
+          <input class="form-control" type="submit" value="Search"><br>
+        </form>
+        <form method="get" action="/favorite">
+          <input class="form-control" type="submit" value="Favorites"><br>
+        </form>
+        <form method="get" action="/logout">
+          <input class="form-control" type="submit" value="Logout">
+        </form>
+      </div>
+
+    </div>
+
+    <div class="sbuttons">
+      <button class="sign-in btn btn-default before-sign-in" type="button">Sign In!</button>
+
+      <button class="sign-up btn btn-default before-sign-in" type="button">Sign Up!</button>
     </div>
 
   </div>
 
-  <div class="footer">
-
-    <button class="sign-in btn btn-default before-sign-in" type="button">Sign In!</button>
-
-    <button class="sign-up btn btn-default before-sign-in" type="button">Sign Up!</button>
-
-    <form class="after-sign-in" method="get" action="/logout">
-      <input class="btn btn-default" type="submit" value="Log Out!">
-    </form>
-  
-    <form class="after-sign-in"method="get" action="/search">
-      <input class="btn btn-default" type="submit" value="Search!">
-    </form>
-
-    <form class="after-sign-in" method="get" action="/favorite">
-      <input class="btn btn-default" type="submit" value="Favorites!">
-    </form>
-
-
-
-  </div>
-
 </div>
-
