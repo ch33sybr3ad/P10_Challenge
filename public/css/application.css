@@ -53,12 +53,12 @@ body {
 
 form h1 {
   padding: 20px;
-  color: #0FC92F;
+  color: #37C54F;
   font-size: 3em;
 }
 
 .form-group input[type=submit] {
-  background: #0FC92F;
+  background: #37C54F;
   color: white;
   font-size: 16px;
 }
