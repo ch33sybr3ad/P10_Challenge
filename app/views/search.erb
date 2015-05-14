@@ -33,8 +33,10 @@
       </div>  
 
       <div class="form-group">
-        <form method="get" action="/">
-          <input class="form-control" type="submit" value="Save to Favorites!">
+        <form class="savefavform" method="post" action="/favoritejob">
+          <input class="favbutton" type="submit" value="Save to Favorites!">
+          <p hidden><%= job.id %></p>
+          <p hidden><%= @user.id %></p>
         </form>
       </div>
 
