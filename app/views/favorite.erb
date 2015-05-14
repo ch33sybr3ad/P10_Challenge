@@ -1,12 +1,48 @@
 <div class="container">
-  <h1>GREETINGS <%=@user.username.upcase%></h1> 
-  <h1> HERE ARE YOUR FAVORITE JOB LISTINGS </h1>
 
-  <% @favorites.each do |relationship| %>
-    <% find_job(relationship[:jobs_id]) %>
-    <p><%= @job.jobtitle %></p>
-    <p><%= @job.company %></p>
-  <%end%>
+  <img src="https://www.jippostore.com/jippo/img/logo-j.png" alt="web app logo" width="100px" height="100
+  px">
+
+  <h1>Job Hunt</h1>
+
+  <h1> Favorited Job Listings: </h1>
+
+  <div class="results">
+    <%if !!@jobs%>
+      <% @jobs.each do |job| %>
+
+      <div class="job-company">
+        <div class="job">
+            <h2><strong><%= job.jobtitle %></strong></h2>
+            <p><%= job.location %></p>
+            <p>Job Snippet: <%= job.snippet %></p>
+            <a href="<%= job.url %>">See Full Description!</a> 
+            <br><br><br><br>
+            <span id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a href="http://www.indeed.com/" title="Job Search"><img src="http://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;" alt="Indeed job search"></a></span>
+        </div>
+
+        <div class="company">
+          <h3><strong><%= job.company %></strong></h3>
+          <a href="<%= job.website %>">Visit <%= job.website %>!</a>
+          <p class="rate"><strong><%= job.rating %></strong></p>
+          <img src="<%=job.logo%>" width="140px" height="140px" alt="<%=job.company%> logo"> <br>
+          <a  href='http://www.glassdoor.com/index.htm'>powered by <img src='http://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+          <br>
+        </div>  
+
+        <div class="form-group">
+          <form method="get" action="/">
+            <input class="form-control" type="submit" value="Remove from Favorites!">
+          </form>
+        </div>
+
+      </div>
+        <% end %>
+
+    <%end%>
+  </div>
+
+
 
   <div class="footer">
 
@@ -17,3 +53,4 @@
   </div>
 
 </div>
+

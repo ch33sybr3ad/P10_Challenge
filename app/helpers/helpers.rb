@@ -51,8 +51,17 @@ helpers do
       end
   end
 
-  def find_job(index)
-    @job = Job.where(id: index).first
+  def find_jobs(user)
+    relationships = Relationship.where(users_id: user.id)
+    @jobs = []
+    relationships.each do |relationship|
+      @jobs << Job.where(id: relationship.jobs_id).first
+    end
+    p '#######'
+    p @jobs
+    p '#######'
+
+    return @jobs
   end 
 
   def find_company(name)

@@ -38,11 +38,10 @@ end
 
 get '/favorite' do
   @user = User.where(id: session[:user_id]).first
-  @favorites = Relationship.where(users_id: @user.id)
+  find_jobs(@user)
   erb :favorite
 end
 
-# maybe add /search/:search ??
 get '/search' do 
   erb :search
 end

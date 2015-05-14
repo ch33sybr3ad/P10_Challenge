@@ -24,11 +24,21 @@ fake_job2 = {
   location: Faker::Address.city, 
   snippet: "you don't want to work here", 
   url: "www.google.com", 
-  jobkey: 1,
+  jobkey: 2,
+}
+
+fake_job3 = {
+  jobtitle: Faker::Commerce.product_name, 
+  company: Faker::Commerce.department,
+  location: Faker::Address.city, 
+  snippet: "you don't want to work here", 
+  url: "www.google.com", 
+  jobkey: 3,
 }
 
 Job.create(fake_job)
 Job.create(fake_job2)
+Job.create(fake_job3)
 
 Relationship.create(users_id: 1, jobs_id: 1)
 Relationship.create(users_id: 1, jobs_id: 2)
