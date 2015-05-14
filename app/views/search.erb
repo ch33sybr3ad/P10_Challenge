@@ -36,7 +36,9 @@
         <form class="savefavform" method="post" action="/favoritejob">
           <input class="favbutton" type="submit" value="Save to Favorites!">
           <p hidden><%= job.id %></p>
+          <% if @user %>
           <p hidden><%= @user.id %></p>
+          <% end %>
         </form>
       </div>
 

@@ -56,10 +56,6 @@ helpers do
     relationships.each do |relationship|
       @jobs << Job.where(id: relationship.jobs_id).first
     end
-    p '#######'
-    p @jobs
-    p '#######'
-
     return @jobs
   end 
 
