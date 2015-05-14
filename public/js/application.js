@@ -52,12 +52,35 @@ $(document).ready(function() {
     });
   });
 
-  // $('#register').fadeOut(1000)
+  $('body').on('submit', '.savefavform', function(e) {
+    e.preventDefault();
+    current = $(this)
+    job_index = $($(this).find('p')[0]).text()
+    user_index = $($(this).find('p')[1]).text()
+    post_url = $(this).attr('action')
+    $.ajax({
+      url: post_url,
+      type: 'POST',
+      data: { user_id: user_index, job_id: job_index }  
+    }).done(function() {
+      current.find('input[value="Save to Favorites!"]').css('background', 'rgb(25, 131, 23)');
+      current.find('input[value="Save to Favorites!"]').val('Sent to Favorites!');
+    });
+  });
 
+  $('body').on('submit', '.removefavform', function(e) {
+    e.preventDefault();
+    current = $(this)
+    job_index = $($(this).find('p')[0]).text()
+    user_index = $($(this).find('p')[1]).text()
+    delete_url = $(this).attr('action')
+    $.ajax({
+      url: delete_url,
+      type: 'DELETE',
+      data: { user_id: user_index, job_id: job_index } 
+    }).done(function() {
+      current.parents('.job-company').fadeOut()
+    });
+  });
 
-  // $($('.form-group').find('input')[0-2])
-  //  finds forms 1,2,3
-
-  // $($('.form-group').find('input')[2]).replaceWith("<h2>New heading</h2>")
-  // $(this).fadeOut().next().fadeIn()
 });

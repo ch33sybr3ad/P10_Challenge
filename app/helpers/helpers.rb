@@ -36,7 +36,7 @@ helpers do
     @jobs = []
     parsed_obj["results"].each do |result|
       info = find_company_information(result["company"])
-      @jobs << Job.new(
+      @jobs << Job.create(
         jobtitle: result["jobtitle"], 
         company: result["company"],
         location: result["formattedLocation"], 
@@ -47,7 +47,6 @@ helpers do
         rating:  info["overallRating"],
         logo: info["squareLogo"],
         )
-        #if jobs.save push into @jobs array
       end
   end
 
